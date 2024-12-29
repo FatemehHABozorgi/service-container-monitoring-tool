@@ -18,58 +18,59 @@ This tool monitors systemd services and Docker containers for status changes, su
 
 ## Requirements
 
-Server Requirements
+### Server Requirements
 
-Linux environment with:
+- Linux environment with:
 
-Python 3.7+
+  - Python 3.7+
 
-Systemd for service management
+  - Systemd for service management
 
-Docker (if monitoring containers)
+  - Docker (if monitoring containers)
 
-Workstation Requirements (for running Ansible)
+- Workstation Requirements (for running Ansible):
 
-Ansible 2.9+
+  - Ansible 2.9+
 
-Setup Instructions
+## Setup Instructions
 
 1. Clone the Repository
-
+```
 git clone https://github.com/yourusername/service-container-monitoring-tool.git
 cd service-container-monitoring-tool
-
+```
 2. Configure Variables
 
 Define the required variables in a YAML file (e.g., vars/monitoring_vars.yml):
-
+```
 sms_api_url: "https://sms-api.example.com/monitoring/sms_alarm"
 sms_api_user: "your_username"
 sms_api_pass: "your_password"
 service_user: "your_user"
 service_group: "your_group"
-
+```
 3. Update Ansible Inventory
 
 Ensure the target servers are listed in your Ansible inventory file, e.g., inventory:
-
+```
 [all]
 server1 ansible_host=192.168.1.10 ansible_user=your_ssh_user
 server2 ansible_host=192.168.1.11 ansible_user=your_ssh_user
-
+```
 4. Run the Ansible Playbook
 
 Execute the playbook to deploy the monitoring tool:
-
+```
 ansible-playbook -i inventory playbooks/setup_monitoring.yml --extra-vars "@vars/monitoring_vars.yml"
-
+```
 5. Verify Deployment
 
 After running the playbook, verify that the monitoring service is active:
-
+```
 sudo systemctl status monitoring.service
+```
 
-Project Structure
+## Project Structure
 
 service-container-monitoring-tool/
 ├── README.md
@@ -89,12 +90,13 @@ service-container-monitoring-tool/
 └── logs/
     └── monitoring.log
 
-Logs
+## Logs
 
-Logs are stored in logs/monitoring.log. You can view logs using:
-
+Logs are stored in ```logs/monitoring.log```. You can view logs using:
+```
 tail -f logs/monitoring.log
+```
 
-Contributing
+## Contributing
 
 Contributions are welcome!
