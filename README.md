@@ -71,7 +71,7 @@ sudo systemctl status monitoring.service
 ```
 
 ## Project Structure
-
+```
 service-container-monitoring-tool/
 ├── README.md
 ├── ansible/
@@ -89,6 +89,7 @@ service-container-monitoring-tool/
 ├── monitoring_states.json (ignored in `.gitignore`)
 └── logs/
     └── monitoring.log
+```
 
 ## Logs
 
@@ -98,5 +99,7 @@ tail -f logs/monitoring.log
 ```
 
 ## Contributing
+Contributions are welcome! Please fork the repository and create a pull request with your changes.
 
-Contributions are welcome!
+## Author
+Created by Fatemeh Haji Agha Bozorgi.
